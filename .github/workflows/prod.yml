@@ -35,7 +35,7 @@ jobs:
               -backend-config="key=terraform.tfstate" \
               -backend-config="region=${{ secrets.PROD_REGION }}" \
               -backend-config="access_key=${{ secrets.PROD_ACCESS_KEY }}" \ 
-              -backend-config="secret_key=${{ secrets.PROD_SECRET_KEY }}" \    
+              -backend-config="secret_key=${{ secrets.PROD_SECRET_KEY }}"    
       
       - name: "Terraform fmt"
         run: terraform fmt
