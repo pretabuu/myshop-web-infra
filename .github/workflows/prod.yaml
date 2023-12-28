@@ -1,5 +1,5 @@
 ---
-name: "prod infra build"
+name: "PROD infra build"
 
 on:
   repository_dispatch:
@@ -34,12 +34,11 @@ jobs:
               -backend-config="bucket=${{ secrets.PROD_S3_BUCKET }}" \
               -backend-config="key=terraform.tfstate" \
               -backend-config="region=${{ secrets.PROD_REGION }}" \
-              -backend-config="access_key=${{ secrets.PROD_ACCESS_KEY }}" \ 
-              -backend-config="secret_key=${{ secrets.PROD_SECRET_KEY }}" \    
-      
-      - name: "Terraform fmt"
-        run: terraform fmt
+              -backend-config="access_key=${{ secrets.PROD_ACCESS_KEY }}" \
+              -backend-config="secret_key=${{ secrets.PROD_SECRET_KEY }}"
 
+      - name: "Terrform fmt"
+        run: terraform fmt
 
       - name: "Terraform validate"
         run: terraform validate
